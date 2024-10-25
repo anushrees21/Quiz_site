@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrolling issues */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("images/page1.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    filter: blur(8px); /* Apply the desired blur level */
+    -webkit-filter: blur(8px);
+    z-index: -1; /* Ensure it is behind the container */
+}
+
+.container1 {
+    margin-top: 100px;
+    margin-left: 160px;
+    border: solid 1px rgb(57, 56, 56);
+    height: 75%;
+    width: 75%;
+   
+    position: relative;
+    z-index: 1; /* Ensure it is above the blurred background */
+}
+.container1::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid;
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to right, lightyellow, pink);
+    z-index: -1; /* Ensure it is behind the container content */
+}
+
+.heading1 {
+    display: flex;
+    justify-content: center;
+}
+
+#head1 {
+    padding: 20px;
+    font-weight: 1500;
+    color: rgb(35, 14, 70);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+}
+#head1::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    bottom:5px; /* Adjust this value to move the underline closer or further from the text */
+    width: 90%;
+    height: 5px; /* Thickness of the underline */
+    background: linear-gradient(to right, lightgreen, lightblue);
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+    font-size: larger;
+    height: 100px;
+}
+
+.details span {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    
+}
+#r1{
+    position: relative;
+    left: 7px;
+}
+#r2{
+    position: relative;
+    top: 12px;
+}
+.buttunu{
+    margin: 55px;
+    display: flex;
+    justify-content: center;
+}
+.btn a{
+    text-decoration: none;
+    color: #FFF;
+}
+.btn{
+    font-size: larger;
+    font-weight: bold;
+    padding: 20px;
+    width: 150px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    background-color: #333;
+
+}
+.btn::after{
+    content:"";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    left:0;
+    top: 0;
+    border-radius: 10px;
+}
+.btn::before{
+    content:"";
+    background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00,#48FF00,
+        #00FFD5, #002BFF, #FF00C8,#FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+
+    opacity: 0;
+}
+@keyframes glowing{
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+
+}
+.btn:hover::before{
+    opacity: 4;
+    
+}
+.btn:active:after{
+    background: transparent;
+}s
+.btn:active{
+    color: rgb(138, 123, 123);
+    font-weight: bold;
+}
+
