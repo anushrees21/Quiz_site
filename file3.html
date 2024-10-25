@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Quiz</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="heading1">
+            <h1 id="head1">Fashion Quiz</h1>
+        </div>
+        <div class="details">
+            <span id="r1">
+                <label for="name">Enter Name: </label>
+                &nbsp;
+                &nbsp;
+                <input type="text" id="name" required>
+            </span>
+            <span id="r2">
+                <label for="email">Enter Email ID:</label>
+                &nbsp;
+                <input type="text" id="email" required>
+            </span>
+        </div>
+        <div class="buttunu">
+            <button class="btn" id="startQuizBtn" onclick="saveUserData()">Start Quiz</button>
+        </div>
+    </div>
+    
+    <script>
+        function saveUserData() {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+
+            if (name && email) {
+                window.location.href = `file4.html?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`;
+            } else {
+                alert("Please enter both name and email.");
+            }
+        }
+    </script>
+    
+</body>
+</html>
