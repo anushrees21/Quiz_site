@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style4.css">
+    
+</head>
+<body>
+    
+    <div id="container">
+        <div class="slide-wrapper">
+            <div class="slider">
+                <div class="slide" id="slide1">
+                    <h1>Q1. Who is the current CEO of Myntra?</h1>
+                    <br>
+                    
+                    <div class="btnu" id="btn1">
+                    
+                        <input type="radio" id="option1" name="ceo" value="Shivani Khanna">
+                        <label for="option1">Shivani Khanna</label><br>
+                        <input type="radio" id="option2" name="ceo" value="Nandita Sinha">
+                        <label for="option2">Nandita Sinha</label><br>
+                        <input type="radio" id="option3" name="ceo" value="Falguni Nayar">
+                        <label for="option3">Falguni Nayar</label><br>
+                        <input type="radio" id="option4" name="ceo" value="Prerna Das">
+                        <label for="option4">Prerna Das</label>
+                    </div>
+                    <div class="advertisement_container">
+                        <a href="https://www.myntra.com/under-eye-creams-and-serums/sereko/sereko-calming-gel-pen---10-ml/24012840/buy">
+                        <img src="images/add11.png" alt="nhi aaya" loading="lazy"></a>
+                        <div class="text">
+                            <a href="https://www.myntra.com/under-eye-creams-and-serums/sereko/sereko-calming-gel-pen---10-ml/24012840/buy">
+                                SEREKO<br>
+                                A anti-stress calming Gel Pen - 10 ml</a>
+                        </div>
+                    </div>
+                    <div class="b3">
+                        <button class="buttunu" id="b1"> <a href="#slide2">Submit</a></button>
+                    </div>
+                </div>
+                <div class="slide" id="slide2">
+                    <h1>Q2. When was Balenciaga founded?</h1>
+                    <div class="btnu" id="btn2">
+                        <input type="radio" id="paris" name="capital" value="1914"">
+                        <label for="paris">1914</label><br>
+                        <input type="radio" id="berlin" name="capital" value="1945">
+                        <label for="berlin">1945</label><br>
+                        <input type="radio" id="madrid" name="capital" value="1931">
+                        <label for="madrid">1931</label><br>
+                        <input type="radio" id="rome" name="capital" value="Rome">
+                        <label for="rome">1919</label>
+
+                    </div>
+                    <div class="advertisement_container">
+                        <a href="https://www.myntra.com/sweatshirts/new+balance/new-balance-women-black-solid-hooded-sweatshirt/15869386/buy">
+                            <img src="images/add21.png" alt="nhi aaya" loading="lazy"></a>
+                        <div class="text">
+                            <a href="https://www.myntra.com/sweatshirts/new+balance/new-balance-women-black-solid-hooded-sweatshirt/15869386/buy">
+                                New Balance<br>
+                                Women Black Solid Hooded Sweatshirt</a>
+                        </div>
+                    </div>
+                    <div class="b3">
+                        <button class="buttunu" id="b2"> <a href="#slide3">Submit </a></button>
+                    </div>
+                </div>
+                <div class="slide" id="slide3">
+                    <h1>Q3. Who is the CEO of Unilever Hindustan?</h1>
+                    <br>
+                    <div class="btnu" id="btn3">
+                        <input type="radio" id="mars" name="planet" value="Mars">
+                        <label for="mars">Rohit Jahwa</label><br>
+                        <input type="radio" id="venus" name="planet" value="Venus">
+                        <label for="venus">Suraj Bansal</label><br>
+                        <input type="radio" id="jupiter" name="planet" value="Nandita Das">
+                        <label for="jupiter">Nandita Das</label><br>
+                        <input type="radio" id="saturn" name="planet" value="Saturn">
+                        <label for="saturn">Vaishali Sen</label>
+                    </div>
+                    <div class="advertisement_container">
+                        <a href="https://www.myntra.com/shirts/mr+bowerbird/mr-bowerbird-pure-cotton-tailored-fit-hand-block-print-paisley-shirt/21128554/buy">
+                        <img src="images/add31.png" alt="nhi aaya" loading="lazy"></a>
+                        <div class="text">
+                            <a href="https://www.myntra.com/shirts/mr+bowerbird/mr-bowerbird-pure-cotton-tailored-fit-hand-block-print-paisley-shirt/21128554/buy">
+                                Mr Bowerbird<br>
+                                Pure Cotton Hand Block Print Paisley Shirt</a>
+                        </div>
+                    </div>
+                    <div class="b3">
+                        <button class="buttunu" id="b33"> <a href="#scoreSlide">Submit Quiz</a></button>
+                    </div>
+
+                </div>
+                <div class="slide" id="scoreSlide">
+                    <h1>Your Score</h1>
+                    <p id="scoreDisplay">Your score is</p>
+                    <button class="buttunu" id="b441" onclick="saveQuiz()"><a href="#slide1">Retake quiz</a></button>
+                </div>
+            </div>
+            <div class="slide-nav">
+                <a href="#slide1"></a>
+                <a href="#slide2"></a>
+                <a href="#slide3"></a>
+                <a href="#scoreSlide"></a>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.slice(1);
+            const queryArray = queryString.split('&');
+
+            queryArray.forEach(function(pair) {
+                const [key, value] = pair.split('=');
+                params[key] = decodeURIComponent(value);
+            });
+
+            return params;
+        }
+
+        // Retrieve and display the user data
+        const params = getQueryParams();
+        document.getElementById('userDetails').textContent = `Name: ${params.name}, Email: ${params.email}`;
+
+    </script>
+    <script>
+        function enableSubmitButton(buttonId, radioName) {
+            const radios = document.getElementsByName(radioName);
+            for (let i = 0; i < radios.length; i++) {
+                radios[i].addEventListener('change', function() {
+                    document.getElementById(buttonId).disabled = false;
+                });
+            }
+        }
+        enableSubmitButton('b1', 'ceo');
+        enableSubmitButton('b2', 'capital');
+        enableSubmitButton('b33', 'planet');
+
+        function calculateScore() {
+            let score = 0;
+    
+            // Check answers for each question
+            if (document.querySelector('input[name="ceo"]:checked')?.value === "Nandita Sinha") {
+                score++;
+            }
+            if (document.querySelector('input[name="capital"]:checked')?.value === "1931") {
+                score++;
+            }
+            if (document.querySelector('input[name="planet"]:checked')?.value === "Nandita Das") {
+                score++;
+            }
+    
+            // Display the score on the final page
+            document.getElementById('scoreDisplay').textContent = `Your score is: ${score}/3`;
+    
+            // Store the score along with user details for MongoDB storage
+            // const userScoreData = {
+            //     name: params.name,
+            //     email: params.email,
+            //     score: score
+            // };
+    
+            // Save data to MongoDB (covered in the next step)
+            saveScoreToDatabase(userScoreData);
+        }
+    
+        // Call calculateScore when the quiz is submitted
+        document.getElementById('b33').addEventListener('click', calculateScore);
+    </script>
+    <script src="serveer1.js"></script>
+    <!-- <script src="script2.js"></script> -->
+    
+</body>
+</html>
